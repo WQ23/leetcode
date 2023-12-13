@@ -1,0 +1,24 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    let diff={}
+
+    //store difference
+    //iterate through nums
+    //for each element, find in diff
+    //if found, return element index and diff index in array
+    //assumes there's always an answer
+
+    for (let i=0; i<nums.length; i++)
+        diff[target-nums[i]]=i
+
+    for (let i=0; i<nums.length; i++) {
+        if (!!diff[nums[i]]) {
+            return [i, diff[nums[i]]]
+        }
+    }
+
+};
