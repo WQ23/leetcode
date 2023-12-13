@@ -6,6 +6,7 @@ const twoSum = (nums, target) => {
     //for each element, find in diff
     //if found, return element index and diff index in array
     //assumes there's always an answer
+    //time complexity: O(2n) => O(n)
 
     for (let i=0; i<nums.length; i++)
         diff[target-nums[i]]=i
