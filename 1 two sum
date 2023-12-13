@@ -1,9 +1,4 @@
-/**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-var twoSum = function(nums, target) {
+const twoSum = (nums, target) => {
     let diff={}
 
     //store difference
@@ -16,7 +11,7 @@ var twoSum = function(nums, target) {
         diff[target-nums[i]]=i
 
     for (let i=0; i<nums.length; i++) {
-        if (!!diff[nums[i]]) {
+        if (diff[nums[i]]) {
             return [i, diff[nums[i]]]
         }
     }
