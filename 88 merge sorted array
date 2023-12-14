@@ -1,0 +1,22 @@
+//backwards approach
+//while loop should use nPointer instead of lastPointer so first element of nums1 will not be undefined
+
+const merge = (nums1, m, nums2, n) => {
+
+    let mPointer = m - 1
+    let nPointer = n - 1
+    let lastPointer = nums1.length - 1
+
+    while (nPointer >= 0) {
+
+        if (nums1[mPointer] > nums2[nPointer]) {
+            nums1[lastPointer] = nums1[mPointer--]
+        }
+        else {
+            nums1[lastPointer] = nums2[nPointer--]
+        }
+
+        lastPointer--
+    }
+
+};
