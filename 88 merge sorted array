@@ -1,11 +1,11 @@
-//backwards approach
-//while loop should use nPointer instead of lastPointer so first element of nums1 will not be undefined
-
 const merge = (nums1, m, nums2, n) => {
 
     let mPointer = m - 1
     let nPointer = n - 1
     let lastPointer = nums1.length - 1
+
+    //insert at back of array after comparing which element is greater at last index of m / n
+    // shift pointer down
 
     while (nPointer >= 0) {
 
@@ -17,6 +17,7 @@ const merge = (nums1, m, nums2, n) => {
         }
 
         lastPointer--
+
     }
 
 };
