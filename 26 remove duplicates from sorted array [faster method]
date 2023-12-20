@@ -1,0 +1,15 @@
+const removeDuplicates = (nums) => {
+
+    let currIndex = 1
+
+    //start from 1 and compare with PREVIOUS element, since it is in non-decreasing order
+    //avoids edge case at last index if comparing with NEXT element
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] != nums[i - 1]) {
+            nums[currIndex] = nums[i]
+            currIndex++
+        }
+    }
+
+    return currIndex
+};
