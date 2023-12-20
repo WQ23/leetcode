@@ -1,7 +1,9 @@
 const removeDuplicates = (nums) => {
-    if (nums.length <= 2) {
-        return nums.length;
-    }
+
+    //for edge case
+    //if (nums.length <= 2) {
+    //    return nums.length;
+    //}
 
     let currIndex = 2;
     for (let i = 2; i < nums.length; i++) {
