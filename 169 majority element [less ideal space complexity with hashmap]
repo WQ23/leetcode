@@ -1,0 +1,24 @@
+const majorityElement = (nums) => {
+    let dict = {}
+
+    for (let num of nums) {
+        if (!dict[num]) {
+            dict[num] = 1
+        }
+        else {
+            dict[num] += 1
+        }
+    }
+
+    let maxKey = 0
+    let maxVal = 0
+
+    for (const [k, v] of Object.entries(dict)) {
+        if (v > maxVal) {
+            maxVal = v
+            maxKey = k
+        }
+    }
+
+    return maxKey
+};
