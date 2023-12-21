@@ -1,0 +1,4 @@
+const majorityElement = (nums) => {
+    nums.sort()
+    return nums[parseInt(nums.length / 2)]
+};
