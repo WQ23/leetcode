@@ -1,0 +1,30 @@
+var canConstruct = function (ransomNote, magazine) {
+
+    let ranDict = {}
+
+    for (const char of magazine) {
+        if (!ranDict[char]) {
+            ranDict[char] = 1
+        }
+        if (ranDict[char]) {
+            ranDict[char] += 1
+        }
+    }
+
+    for (const char of ransomNote) {
+        if (ranDict[char]) {
+            ranDict[char] -= 1
+
+            if (ranDict[char] < 1) {
+                delete ranDict[char]
+            }
+        }
+
+        if (!ranDict[char]) {
+            return false
+        }
+    }
+
+    return true
+
+};
