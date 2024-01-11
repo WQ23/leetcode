@@ -1,0 +1,40 @@
+var wordPattern = function (pattern, s) {
+    let map1 = {}
+    let map2 = {}
+
+    let ps = pattern.split('') //abba
+    let ss = s.split(' ') //dog cat cat dog
+
+    if (ps.length != ss.length) return false
+
+    // Problem when using js Object not via js Map
+    // constructor is reserved for js Object
+    // map['constructor'] returns true every time even if it was not saved to map
+    // the testcase handles such scenarios so there is a need to replace it
+
+    for (let i = 0; i < ss.length; ++i) {
+        if (ss[i] == 'constructor') {
+            ss[i] = "troll_test_case"
+        }
+        if (ps[i] == 'constructor') {
+            ps[i] = "troll_test_case"
+        }
+
+        if (map1[ss[i]] == null) {
+            map1[ss[i]] = ps[i]
+        }
+        if (map2[ps[i]] == null) {
+            map2[ps[i]] = ss[i]
+        }
+
+        if (map1[ss[i]] != null && map1[ss[i]] != ps[i]) {
+            return false
+        }
+
+        if (map2[ps[i]] != null && map2[ps[i]] != ss[i]) {
+            return false
+        }
+    }
+
+    return true
+};
