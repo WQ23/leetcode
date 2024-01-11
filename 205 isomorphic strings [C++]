@@ -1,0 +1,34 @@
+class Solution {
+public:
+    bool isIsomorphic(string s, string t) {
+
+        map<char, char> fwdMap;
+        map<char, char> bkMap;
+
+        if (s.size() != t.size())
+            return false;
+
+        for (int i = 0; i < s.length(); ++i) {
+            char cs = s[i];
+            char ct = t[i];
+
+            if (fwdMap.count(cs) < 1) {
+                fwdMap[cs] = ct;
+            }
+
+            if (bkMap.count(ct) < 1) {
+                bkMap[ct] = cs;
+            }
+
+            if (fwdMap.count(cs) > 0 && fwdMap[cs] != ct) {
+                return false;
+            }
+
+            if (bkMap.count(ct) > 0 && bkMap[ct] != cs) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+};
