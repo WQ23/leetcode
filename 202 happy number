@@ -3,19 +3,19 @@
  * @return {boolean}
  */
 var isHappy = function (n) {
-    let counter = 0
-    let limit = 20
 
-    while (n != 1 && counter <= limit) {
+    let checker = {}
+
+    while (n != 1) {
         n = compute(n)
-        counter++
+
+        if (!checker[n])
+            checker[n] = 1
+        else //loop found
+            return false
     }
 
-    if (counter > limit) {
-        return false
-    }
-    else
-        return true
+    return true
 };
 
 const compute = (num) => {
