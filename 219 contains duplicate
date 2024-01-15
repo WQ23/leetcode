@@ -1,0 +1,34 @@
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {boolean}
+ */
+var containsNearbyDuplicate = function (nums, k) {
+    let dict = {}
+
+    //number : index
+
+    for (let i = 0; i < nums.length; i++) {
+        if (dict[nums[i]] == null) {
+            dict[nums[i]] = [i]
+        }
+        else {
+            let holder = dict[nums[i]]
+            holder.push(i)
+            dict[nums[i]] = holder
+        }
+    }
+
+    for (const [key, value] of Object.entries(dict)) {
+        if (value.length > 1) {
+            for (let j = 0; j < value.length; j++) {
+                for (let h = 0; h < value.length && h != j; h++) {
+                    if (Math.abs(value[j] - value[h]) <= k)
+                        return true
+                }
+            }
+        }
+    }
+
+    return false
+};
