@@ -1,0 +1,26 @@
+class Solution {
+    public int longestConsecutive(int[] nums) {
+        HashMap<Integer, Integer> lookup = new HashMap<>();
+        int currSeq = 0;
+        int seq = 0;
+
+        for (int n : nums)
+            lookup.put(n, lookup.getOrDefault(n, 0) + 1);
+
+        int n = 0;
+        for (int i = 0; i < nums.length; i++) {
+            n = nums[i];
+            currSeq = 0;
+
+            if (!(lookup.containsKey(nums[i] - 1))) { // first number in seq, nothing in front
+                currSeq++;
+                while (lookup.containsKey(n + 1)) {// check if there's a consecutive number next
+                    currSeq++;
+                    n++;
+                }
+            }
+            seq = Math.max(seq, currSeq);
+        }
+        return seq;
+    }
+}
